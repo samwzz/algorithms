@@ -15,12 +15,12 @@ class LRUCache
   end
 
   def get(key)
-    value = nil
+    node = nil
     if @map.include?(key)
-      update_node!(@map.get(key))
-      value = @map.get(key)
+      node = @map.get(key)
+      update_node!(node)
     else
-      value = calc!(key)
+      node = calc!(key)
       @store.append(key, value)
       @map.set(key, @store.last)
     end
