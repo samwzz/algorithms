@@ -21,13 +21,13 @@ class LRUCache
       update_node!(node)
     else
       node = calc!(key)
-      @store.append(key, value)
+      @store.append(key, node)
       @map.set(key, @store.last)
     end
     if count > @max
       eject!
     end
-    value
+    node
   end
 
   def to_s
