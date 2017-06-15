@@ -11,11 +11,11 @@ require_relative 'heap'
 
 def almost_sorted(arr, k)
   heap = BinaryMinHeap.new
-  k.times do
-    heap.push(arr.pop)
+  (k + 1).times do
+    heap.push(arr.shift)
   end
   until arr.empty?
-    heap.push(arr.pop)
-    p heap.extract
+    print heap.extract
+    heap.push(arr.shift)
   end
 end
