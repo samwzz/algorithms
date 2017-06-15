@@ -10,5 +10,12 @@
 require_relative 'heap'
 
 def almost_sorted(arr, k)
-
+  heap = BinaryMinHeap.new
+  k.times do
+    heap.push(arr.pop)
+  end
+  until arr.empty?
+    heap.push(arr.pop)
+    p heap.extract
+  end
 end
