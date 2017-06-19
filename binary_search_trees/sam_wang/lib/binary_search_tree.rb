@@ -19,6 +19,7 @@ class BinarySearchTree
   end
 
   def find(value, tree_node = @root)
+    BinarySearchTree.find!(tree_node, value)
   end
 
   def delete(value)
@@ -50,5 +51,16 @@ class BinarySearchTree
     end
 
     node
+  end
+
+  def self.find!(node, value)
+    return nil unless node
+    return node if node.value == value
+
+    if value <= node.value
+      BinarySearchTree.find!(node.left, value)
+    else
+      BinarySearchTree.find!(node.right, value)
+    end
   end
 end
