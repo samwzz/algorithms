@@ -36,10 +36,12 @@ class BinarySearchTree
   end
 
   def depth(tree_node = @root)
-    BinarySearchTree.depth(tree_node)
+    return -1 unless tree_node
+    1 + [depth(tree_node.left), depth(tree_node.right)].max
   end
 
   def is_balanced?(tree_node = @root)
+    depth(tree_node.left) == depth(tree_node.right)
   end
 
   def in_order_traversal(tree_node = @root, arr = [])
