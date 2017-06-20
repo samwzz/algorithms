@@ -32,6 +32,19 @@ end
 
 
 # In Order Iterative:
+def in_order_iterative()
+  stack = []
+  current = @root
+  until current.nil? && stack.empty?
+    stack << current
+    current = current.left
+    if current.nil? && !stack.empty?
+      item = stack.pop
+      current = item.right
+      p item
+    end
+  end
+end
 
 # LCA:
 # In a binary search tree, an *ancestor* of a `example_node` is a node
