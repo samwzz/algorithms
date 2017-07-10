@@ -11,9 +11,9 @@ class RingBuffer
   end
 
   # O(1)
-  def [](index)
+  def [](index) # logical idx of dynamic array
     check_index(index)
-    @store[(start_idx + index) % capacity ]
+    @store[(start_idx + index) % capacity ] # physical idx of static array
   end
 
   # O(1)
